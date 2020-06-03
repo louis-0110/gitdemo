@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 3000px;
+        height: 6099px;
+      }
+    </style>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="css1" login="23wer" gaoluo="suaisuia" title="aga"></div>
+    <input type="text" checked />
+    <script>
+      //   document.addEventListener("DOMContentLoaded", function() {
+      //     var url =
+      //       "http://page.huashengzhuan.com.cn/home/entrance_api.php" +
+      //       location.search;
+      //     $.ajax({
+      //       type: "GET",
+      //       url: url,
+      //       success: function(res) {
+      //         var str = res.replace("(", "").replace(")", "");
+      //         console.log(str);
+      //         var obj = JSON.parse(str);
+      //         console.log(obj);
+      //         location.href = obj.domain;
+      //       },
+      //       error: function(res) {
+      //         console.log(res);
+      //         //alert(url);
+      //         // location.href = 'http://qq.com';
+      //       }
+      //     });
+      //   });
+
+      // document.addEventListener('scroll',function(){
+      //     console.log(window.pageXOffset,window.pageYOffset)
+      // })
+      function type(target) {
+        var templet = {
+          "[object Array]": "array",
+          "[object Object]": "object",
+          "[object Number]": "number - object",
+          "[object Boolean]": "boolean - object",
+          "[object String]": "string - object"
+        };
+
+        if (target === "null") {
+          return "null";
+        }
+
+        if (typeof target === "object") {
+          console.log(templet[Object.prototype.toString.call(target)]);
+          return templet[Object.prototype.toString.call(target)];
+        } else {
+          return typeof target;
+        }
+      }
+
+      var obj = {
+        Name: "123",
+        Age: 123,
+        Cad: ["vise", "master"],
+        Wife: { name: "bac", Son: { name: "aaa" } }
+      };
+
+      function deepclone(origin, target) {
+        var target = target || {},
+          toStr = Object.prototype.toString,
+          arrStr = "[object Array]";
+        for (var prop in origin) {
+          if (origin.hasOwnProperty(prop)) {
+            if (typeof origin[prop] === "object") {
+              target[prop] = toStr.call(origin[prop]) == arrStr ? [] : {};
+
+              deepclone(origin[prop], target[prop]);
+            } else {
+              target[prop] = origin[prop];
+            }
+          }
+        }
+        return target;
+      }
+      var obj1 = {};
+      var obj2 = deepclone(obj, obj1);
+      console.log(obj2);
+
+      function Person() {
+        this.name = "xiaolieu";
+        this.value = "18";
+      }
+      var person = new Person();
+
+      document.body.onkeydown = function(e) {
+        console.log(String.fromCharCode(e.keyCode));
+      };
+
+      document.body.onunload = function() {
+        window.onbeforeunload = function(e) {
+          alert((e.returnvalue = "age"));
+        };
+      };
+
+      var oInpt = document.querySelector("input");
+      var oDiv = document.querySelector("div");
+
+      oDiv.setAttribute("ggg", "666");
+
+      function getRandom(min, max) {
+        return (max - min) * Math.random() + min;
+      }
+    </script>
+  </body>
+</html>
