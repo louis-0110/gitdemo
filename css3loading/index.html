@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3-loading</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+
+        section {
+            background-color: aqua;
+            width: 200px;
+            height: 200px;
+            transform: rotate(45deg);
+            transition: all .9s;
+            perspective: 800;
+            perspective-origin: center;
+            transform:rotate(45deg);
+        }
+
+
+
+
+        section p{
+            background-color: brown;
+            margin:0;
+        }
+        section div{
+            margin:0 auto;
+            width:0px;
+            height: 10px;
+            transition: all .5s;
+            background-color: chartreuse;
+            
+        }
+
+        section:hover div{
+            width:100%;
+        }
+
+        section:hover{
+            transform:rotate(360deg)
+        }
+
+        article{
+            width:200px;
+            height: 200px;
+            background-image: url('./img/border-bg.jpg');
+            background-repeat: no-repeat;
+            perspective: 800px;
+            perspective-origin: 0 0;
+            transform: rotateX(0deg);
+            animation: trans 1s infinite alternate;
+        }
+
+
+        @keyframes trans {
+            0%{
+                transform: rotateX(0deg);
+            }
+
+            100%{
+                transform: rotateX(180deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="borderbg">123kljlkjlkjlk</div>
+
+
+
+
+    <div class="wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <section>
+        <p>123123123</p>
+        <div></div>
+    </section>
+
+
+    <article></article>
+    <script src="./jquery.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
